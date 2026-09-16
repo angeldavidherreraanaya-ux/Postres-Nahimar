@@ -41,8 +41,7 @@ img, svg { display: block; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 249, 244, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 249, 244, 0.97);
   border-bottom: 2px solid var(--rosa);
   padding: 14px 0;
 }
@@ -422,6 +421,8 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 /* ---------- Responsive ---------- */
 @media (max-width: 820px) {
   .nav-toggle { display: flex; }
+
+  .hero-bg, .about-art { will-change: auto; }
 
   .nav-menu {
     position: fixed;
