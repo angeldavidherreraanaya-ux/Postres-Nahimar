@@ -59,7 +59,7 @@ img, svg { display: block; }
 
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--tinta); }
 
-.brand-logo { height: 44px; width: auto; }
+.brand-logo { height: 56px; width: auto; }
 
 .brand-name {
   font-family: var(--display);
@@ -217,11 +217,13 @@ img, svg { display: block; }
 .manifesto { background: #fff; text-align: center; padding: 96px 0 88px; }
 
 .manifesto-icon {
-  width: 58px;
-  height: 58px;
-  color: var(--fresa);
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 18px;
   margin: 0 auto 26px;
-  filter: drop-shadow(0 6px 14px rgba(224,49,95,.3));
+  box-shadow: 0 8px 20px rgba(224,49,95,.35);
+  display: block;
 }
 
 .manifesto-quote {
@@ -480,9 +482,9 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 
 .contact-icon { width: 42px; height: 42px; margin: 0 auto 14px; }
 
-.ic-wa { color: #25d366; }
+.ic-wa { color: #f0842e; }
 .ic-ig { color: var(--fresa); }
-.ic-pin { color: var(--hoja); }
+.ic-pin { color: #f0842e; }
 
 .contact-card h3 { color: var(--fresa-osc); font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin-bottom: 4px; }
 
@@ -518,6 +520,7 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
   background: #25d366;
   display: grid;
   place-items: center;
+  color: #fff;
   box-shadow: 0 10px 26px rgba(37,211,102,.45);
   z-index: 60;
   text-decoration: none;
