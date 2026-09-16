@@ -217,12 +217,10 @@ img, svg { display: block; }
 .manifesto { background: #fff; text-align: center; padding: 96px 0 88px; }
 
 .manifesto-icon {
-  width: 72px;
-  height: 72px;
-  object-fit: cover;
-  border-radius: 18px;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
   margin: 0 auto 26px;
-  box-shadow: 0 8px 20px rgba(224,49,95,.35);
   display: block;
 }
 
@@ -482,9 +480,9 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 
 .contact-icon { width: 42px; height: 42px; margin: 0 auto 14px; }
 
-.ic-wa { color: #f0842e; }
+.ic-wa { color: var(--fresa); }
 .ic-ig { color: var(--fresa); }
-.ic-pin { color: #f0842e; }
+.ic-pin { color: var(--fresa); }
 
 .contact-card h3 { color: var(--fresa-osc); font-family: var(--display); font-weight: 600; font-size: 1.3rem; margin-bottom: 4px; }
 
