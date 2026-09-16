@@ -19,11 +19,15 @@ body {
   font-family: "Quicksand", system-ui, sans-serif;
   color: var(--tinta);
   background-color: var(--crema);
-  background-image: radial-gradient(rgba(224, 49, 95, 0.07) 1.8px, transparent 1.8px);
-  background-size: 30px 30px;
-  background-attachment: fixed;
   line-height: 1.6;
-  overflow-x: hidden;
+}
+
+@media (pointer: fine) {
+  body {
+    background-image: radial-gradient(rgba(224, 49, 95, 0.07) 1.8px, transparent 1.8px);
+    background-size: 30px 30px;
+    background-attachment: fixed;
+  }
 }
 
 .container { width: min(1080px, 92%); margin-inline: auto; }
