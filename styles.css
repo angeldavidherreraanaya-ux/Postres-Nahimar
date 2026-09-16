@@ -13,13 +13,18 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  overscroll-behavior: none;
+}
 
 body {
   font-family: "Quicksand", system-ui, sans-serif;
   color: var(--tinta);
   background-color: var(--crema);
   line-height: 1.6;
+  overflow-x: clip;
 }
 
 @media (pointer: fine) {
