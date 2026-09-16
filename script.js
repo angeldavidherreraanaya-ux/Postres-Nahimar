@@ -31,7 +31,7 @@ const load = (src, onload) => {
 };
 
 if (!reduceMotion) {
-  document.querySelectorAll(".product-card, .contact-card").forEach((el, i) => {
+  document.querySelectorAll(".product-card, .contact-card, .featured-card").forEach((el, i) => {
     el.classList.add("reveal");
     el.style.transitionDelay = `${(i % 3) * 0.1}s`;
   });
@@ -61,18 +61,28 @@ if (!reduceMotion) {
     load("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js", () => {
       load("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js", () => {
         gsap.registerPlugin(ScrollTrigger);
-        gsap.utils.toArray("[data-parallax]").forEach((el) => {
-          gsap.to(el, {
-            yPercent: 10,
-            ease: "none",
-            scrollTrigger: {
-              trigger: el.parentElement,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: true,
-            },
+gsap.utils.toArray("[data-parallax]").forEach((el) => {
+            gsap.to(el, {
+              yPercent: 10,
+              ease: "none",
+              scrollTrigger: {
+                trigger: el.parentElement,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
           });
-        });
+
+          gsap.from(".hero-title", { y: 46, opacity: 0, duration: 1.1, ease: "power3.out" });
+          gsap.from(".hero-badge, .hero-tagline, .hero-ctas", {
+            y: 26,
+            opacity: 0,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: "power2.out",
+            delay: 0.15,
+          });
       });
     });
 
