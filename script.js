@@ -32,7 +32,7 @@ function updateParallax() {
   ticking = false;
 }
 
-if (!reduceMotion) {
+if (!reduceMotion && window.matchMedia("(min-width: 821px)").matches) {
   window.addEventListener("scroll", () => {
     if (!ticking) {
       window.requestAnimationFrame(updateParallax);
