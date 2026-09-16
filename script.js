@@ -75,6 +75,58 @@ if (!reduceMotion) {
         });
       });
     });
+
+    const canvas = document.getElementById("crumbs-fx");
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      const crumbs = Array.from({ length: 9 }, () => spawn(true));
+      let running = true;
+
+      function rand(a, b) { return a + Math.random() * (b - a); }
+
+      function spawn(any) {
+        return {
+          x: rand(0, canvas.width),
+          y: any ? rand(0, canvas.height) : rand(canvas.height, canvas.height + 40),
+          r: rand(2, 4.5),
+          vy: rand(-0.25, -0.6),
+          vx: rand(-0.15, 0.15),
+          a: rand(0.08, 0.28),
+          hue: Math.random() < 0.32 ? 40 : 340,
+        };
+      }
+
+      function resize() {
+        const w = canvas.clientWidth, h = canvas.clientHeight;
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width = w;
+          canvas.height = h;
+        }
+      }
+
+      function tick() {
+        if (!running) return;
+        resize();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (const c of crumbs) {
+          c.y += c.vy;
+          c.x += c.vx + Math.sin(c.y * 0.01) * 0.02;
+          if (c.y < -10) Object.assign(c, spawn(false));
+          ctx.fillStyle = c.hue === 40 ? `rgba(180,130,60,${c.a})` : `rgba(224,49,95,${c.a})`;
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, c.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      document.addEventListener("visibilitychange", () => {
+        running = !document.hidden;
+        if (running) requestAnimationFrame(tick);
+      });
+
+      tick();
+    }
   }
 }
 
