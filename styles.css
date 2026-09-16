@@ -525,6 +525,24 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 
 .wa-float .icon { width: 32px; height: 32px; }
 
+.ig-float {
+  position: fixed;
+  bottom: 94px;
+  right: 22px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 26px rgba(220,39,67,.45);
+  z-index: 60;
+  text-decoration: none;
+  color: #fff;
+}
+
+.ig-float .icon { width: 30px; height: 30px; }
+
 /* ---------- Animaciones de entrada ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
@@ -584,6 +602,13 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
     height: 64px;
     right: 16px;
     bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+
+  .ig-float {
+    width: 64px;
+    height: 64px;
+    right: 16px;
+    bottom: calc(92px + env(safe-area-inset-bottom));
   }
 
   .hero { min-height: max(520px, 88vh); }
