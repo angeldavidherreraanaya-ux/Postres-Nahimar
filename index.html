@@ -88,93 +88,93 @@
   </header>
 
   <main>
+    <!-- 1 · HERO full-screen con parallax -->
     <section id="inicio" class="hero">
-      <div class="hero-bg" aria-hidden="true" data-parallax="0.2"></div>
+      <div class="hero-bg" data-parallax="0.18"><img src="assets/img/banner-fresas.jpg" alt=""></div>
+      <div class="hero-veil"></div>
       <div class="crumbs" aria-hidden="true"><canvas id="crumbs-fx"></canvas></div>
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <span class="hero-badge"><svg class="icon"><use href="#i-leaf"/></svg> Postres caseros · Cali</span>
-          <h1 class="hero-title">Fresas con crema, <em>hechas en casa</em></h1>
-          <p class="hero-tagline">Dulces artesanales sin conservantes, preparados por encargo. Fresas con crema, tartas, brownies y antojos que se piden por un chat y llegan el mismo día.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-wa btn-lg" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20%F0%9F%8D%93" target="_blank" rel="noopener">
-              <svg class="icon"><use href="#i-wa"/></svg> Pedir por WhatsApp
-            </a>
-            <a class="btn btn-outline btn-lg" href="#catalogo">Ver el menú</a>
-          </div>
+      <div class="container hero-content">
+        <span class="hero-badge"><svg class="icon"><use href="#i-leaf"/></svg> Postres caseros · Cali</span>
+        <h1 class="hero-title">Fresas con crema, <em>hechas en casa</em></h1>
+        <p class="hero-tagline">Dulces artesanales sin conservantes, preparados por encargo. Fresas con crema, tartas, brownies y antojos que se piden por un chat y llegan el mismo día.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-wa btn-lg" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20hacer%20un%20pedido%20%F0%9F%8D%93" target="_blank" rel="noopener">
+            <svg class="icon"><use href="#i-wa"/></svg> Pedir por WhatsApp
+          </a>
+          <a class="btn btn-light btn-lg" href="#catalogo">Ver el menú</a>
         </div>
-        <div class="hero-art" data-parallax="0.12">
-          <div class="hero-photo-wrap">
-            <img src="assets/img/fresas-crema.jpg" alt="Fresas con crema caseras" width="640" height="640" fetchpriority="high">
-            <div class="stamp" aria-hidden="true">
-              <svg viewBox="0 0 120 120">
-                <defs>
-                  <path id="stamp-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
-                </defs>
-                <circle cx="60" cy="60" r="58" fill="var(--crema)"/>
-                <text><textPath href="#stamp-circle">HECHO CON AMOR ★ CALI ★ NAHIMAR ★</textPath></text>
-                <text x="60" y="66" text-anchor="middle" class="stamp-core">100%</text>
-              </svg>
-            </div>
-          </div>
+      </div>
+    </section>
+
+    <!-- 2 · CITA / manifiesto -->
+    <section class="manifesto section">
+      <div class="container">
+        <svg class="manifesto-icon" aria-hidden="true"><use href="#i-fresa"/></svg>
+        <blockquote class="manifesto-quote">La buena comida debería reconfortar y nutrir el alma. Los postres, además, <em>saben a tarde feliz.</em></blockquote>
+        <p class="manifesto-by">— Nahimar, hecho en casa</p>
+      </div>
+    </section>
+
+    <!-- 3 · FAVORITOS · tira de tarjetas -->
+    <section class="featured section">
+      <div class="container">
+        <p class="section-subtitle">Los más pedidos</p>
+        <h2 class="section-title">Lo que sale <em>del molde</em></h2>
+        <div class="featured-row">
+          <article class="featured-card">
+            <img src="assets/img/fresas-crema.jpg" alt="Fresas con crema" width="640" height="640" loading="lazy">
+            <h3>Fresas con Crema</h3>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20Fresas%20con%20Crema%20%F0%9F%8D%93" target="_blank" rel="noopener">Pedir esta</a>
+          </article>
+          <article class="featured-card">
+            <img src="assets/img/tarta-fresa.jpg" alt="Tarta de fresa" width="640" height="640" loading="lazy">
+            <h3>Tarta de Fresa</h3>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20una%20Tarta%20de%20Fresa%20%F0%9F%8D%B0" target="_blank" rel="noopener">Pedir esta</a>
+          </article>
+          <article class="featured-card">
+            <img src="assets/img/brownie.jpg" alt="Brownie de chocolate" width="640" height="640" loading="lazy">
+            <h3>Brownie de Chocolate</h3>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/573000000000?text=Hola%2C%20quiero%20pedir%20un%20Brownie%20de%20Chocolate%20%F0%9F%8D%AB" target="_blank" rel="noopener">Pedir este</a>
+          </article>
         </div>
       </div>
     </section>
 
     <div class="marquee" aria-hidden="true">
       <div class="marquee-track">
-        <span class="marquee-item">Fresas con crema</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Dulces artesanales</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Hecho en casa</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Cali</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Fresas con crema</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Dulces artesanales</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Hecho en casa</span>
-        <span class="marquee-sep">✦</span>
-        <span class="marquee-item">Cali</span>
-        <span class="marquee-sep">✦</span>
+        <span class="marquee-item">Fresas con crema</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Dulces artesanales</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Hecho en casa</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Cali</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Fresas con crema</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Dulces artesanales</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Hecho en casa</span><span class="marquee-sep">✦</span>
+        <span class="marquee-item">Cali</span><span class="marquee-sep">✦</span>
       </div>
     </div>
 
-    <section class="banner banner-1">
-      <div class="container">
-        <p>Cada fresa se elige roja</p>
-        <h2>Y cada crema se bate <em>con amor</em></h2>
-      </div>
-    </section>
-
+    <!-- 4 · HISTORIA · texto rodeando la foto -->
     <section id="nosotros" class="about section">
-      <div class="container about-grid">
-        <div class="about-art" aria-hidden="true" data-parallax="0.08">
-          <div class="cream-bowl">
-            <svg class="icon bowl-icon"><use href="#i-fresa"/></svg>
-            <span>¡Fresca!</span>
-          </div>
-        </div>
-        <div class="about-text">
-          <p class="section-subtitle">Nuestra historia</p>
-          <h2 class="section-title">Recién hecho, <em>de verdad</em></h2>
-          <p class="about-lead">En <strong>Postres Nahimar</strong> cada postre se prepara por encargo: fruta fresca el mismo día, crema de leche real y cero conservantes.</p>
-          <ul class="about-list">
-            <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Fresas con crema clásicas y con chocolate</li>
-            <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Tartas, brownies y postres por encargo</li>
-            <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Dulces artesanales para regalar</li>
-            <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Entrega para tu casa o recogida en Cali</li>
-          </ul>
-        </div>
+      <div class="container about-wrap">
+        <img class="about-photo" src="assets/img/dulces.jpg" alt="Dulces artesanales" width="640" height="640" loading="lazy" data-parallax="0.08">
+        <p class="section-subtitle">Nuestra historia</p>
+        <h2 class="section-title">Recién hecho, <em>de verdad</em></h2>
+        <p class="about-lead">En <strong>Postres Nahimar</strong> cada postre se prepara por encargo: la fruta se recoge en el día, la crema es de leche real y nada llega congelado al plato. Así sabe distinto — porque está recién hecho, de verdad.</p>
+        <p class="about-lead">Pedimos por WhatsApp para que no se queme nada: tú eliges el día, armamos el pedido y lo tienes listo para recoger o para que llegue a tu casa caliente del horno.</p>
+        <ul class="about-list">
+          <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Fresas con crema clásicas y con chocolate</li>
+          <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Tartas, brownies y postres por encargo</li>
+          <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Dulces artesanales para regalar</li>
+          <li><svg class="icon icon-sm"><use href="#i-fresa"/></svg> Entrega para tu casa o recogida en Cali</li>
+        </ul>
       </div>
     </section>
 
+    <!-- 5 · EL MENÚ completo -->
     <section id="catalogo" class="catalog section">
       <div class="container">
         <p class="section-subtitle">El menú de hoy</p>
-        <h2 class="section-title">Lo que sale <em>del molde</em></h2>
+        <h2 class="section-title">Todo lo que <em>endulza</em></h2>
         <p class="menu-note">Elige el tuyo, escríbenos y lo tenemos listo el mismo día.</p>
 
         <div class="products-grid">
@@ -235,6 +235,7 @@
       </div>
     </section>
 
+    <!-- 6 · BANNER CTA full-screen -->
     <section class="banner banner-2">
       <div class="container">
         <p>¿Se te antojó algo?</p>
@@ -247,21 +248,16 @@
 
     <div class="marquee marquee-dark" aria-hidden="true">
       <div class="marquee-track">
-        <span class="marquee-item">Entrega en Cali</span>
-        <span class="marquee-sep">★</span>
-        <span class="marquee-item">Pedidos por WhatsApp</span>
-        <span class="marquee-sep">★</span>
-        <span class="marquee-item">Hecho el mismo día</span>
-        <span class="marquee-sep">★</span>
-        <span class="marquee-item">Entrega en Cali</span>
-        <span class="marquee-sep">★</span>
-        <span class="marquee-item">Pedidos por WhatsApp</span>
-        <span class="marquee-sep">★</span>
-        <span class="marquee-item">Hecho el mismo día</span>
-        <span class="marquee-sep">★</span>
+        <span class="marquee-item">Entrega en Cali</span><span class="marquee-sep">★</span>
+        <span class="marquee-item">Pedidos por WhatsApp</span><span class="marquee-sep">★</span>
+        <span class="marquee-item">Hecho el mismo día</span><span class="marquee-sep">★</span>
+        <span class="marquee-item">Entrega en Cali</span><span class="marquee-sep">★</span>
+        <span class="marquee-item">Pedidos por WhatsApp</span><span class="marquee-sep">★</span>
+        <span class="marquee-item">Hecho el mismo día</span><span class="marquee-sep">★</span>
       </div>
     </div>
 
+    <!-- 7 · CONTACTO -->
     <section id="contacto" class="contact section">
       <div class="container">
         <p class="section-subtitle">Charla real</p>
