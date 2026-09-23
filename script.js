@@ -140,6 +140,36 @@ gsap.utils.toArray("[data-parallax]").forEach((el) => {
   }
 }
 
+const sliderEls = document.querySelectorAll(".slider");
+sliderEls.forEach((slider) => {
+  const track = slider.querySelector(".slider-track");
+  const imgs = Array.from(track.querySelectorAll("img"));
+  const dotsWrap = slider.parentElement.querySelector(".slider-dots");
+  let idx = 0;
+
+  const show = (i) => {
+    idx = (i + imgs.length) % imgs.length;
+    imgs.forEach((img, n) => img.classList.toggle("active", n === idx));
+    if (dotsWrap) dotsWrap.querySelectorAll("button").forEach((b, n) => b.classList.toggle("active", n === idx));
+  };
+
+  const prev = slider.querySelector(".prev");
+  const next = slider.querySelector(".next");
+  if (prev) prev.addEventListener("click", () => show(idx - 1));
+  if (next) next.addEventListener("click", () => show(idx + 1));
+
+  if (dotsWrap) {
+    imgs.forEach((_, n) => {
+      const b = document.createElement("button");
+      b.setAttribute("aria-label", `Foto ${n + 1}`);
+      b.addEventListener("click", () => show(n));
+      dotsWrap.appendChild(b);
+    });
+  }
+
+  show(0);
+});
+
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(
     (entries) =>
