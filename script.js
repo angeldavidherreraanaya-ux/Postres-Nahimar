@@ -170,6 +170,91 @@ sliderEls.forEach((slider) => {
   show(0);
 });
 
+const lightbox = document.getElementById("lightbox");
+if (lightbox) {
+  const stage = lightbox.querySelector(".lightbox-stage");
+  const img = stage.querySelector("img");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+  const zo = lightbox.querySelector(".lightbox-zoom-in");
+  const zc = lightbox.querySelector(".lightbox-zoom-out");
+  let scale = 1, ox = 0, oy = 0, startX = 0, startY = 0, dragging = false, pinchDist = 0;
+
+  const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
+  const apply = () => {
+    img.style.transform = `translate(${ox}px, ${oy}px) scale(${scale})`;
+  };
+  const zoom = (d, cx, cy) => {
+    const ns = clamp(scale * d, 1, 6);
+    const k = ns / scale;
+    ox = clamp(cx - (cx - ox) * k, -img.width * ns / 2, img.width * ns / 2);
+    oy = clamp(cy - (cy - oy) * k, -img.height * ns / 2, img.height * ns / 2);
+    scale = ns;
+    apply();
+  };
+
+  const open = (src, alt) => {
+    img.src = src;
+    img.alt = alt || "";
+    scale = 1; ox = 0; oy = 0;
+    apply();
+    lightbox.hidden = false;
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  };
+  const close = () => {
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  };
+
+  document.querySelectorAll("[data-lightbox]").forEach((el) => {
+    el.querySelectorAll("img").forEach((i) => {
+      i.addEventListener("click", (e) => { e.stopPropagation(); open(i.currentSrc || i.src, i.alt); });
+    });
+    const zb = el.querySelector(".zoom-btn");
+    if (zb) zb.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const i = el.querySelector(".slider-track img.active") || el.querySelector("img");
+      open(i.currentSrc || i.src, i.alt);
+    });
+  });
+
+  closeBtn.addEventListener("click", close);
+  zo.addEventListener("click", () => zoom(1.35, img.clientWidth / 2, img.clientHeight / 2));
+  zc.addEventListener("click", () => zoom(1 / 1.35, img.clientWidth / 2, img.clientHeight / 2));
+  stage.addEventListener("wheel", (e) => { e.preventDefault(); zoom(e.deltaY < 0 ? 1.15 : 1 / 1.15, img.clientWidth / 2, img.clientHeight / 2); }, { passive: false });
+
+  stage.addEventListener("pointerdown", (e) => {
+    if (scale <= 1) return;
+    dragging = true;
+    startX = e.clientX - ox;
+    startY = e.clientY - oy;
+    img.classList.add("dragging");
+    stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    ox = clamp(e.clientX - startX, -img.width * scale, img.width * scale);
+    oy = clamp(e.clientY - startY, -img.height * scale, img.height * scale);
+    apply();
+  });
+  stage.addEventListener("pointerup", () => { dragging = false; img.classList.remove("dragging"); });
+
+  const dist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+  stage.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const d = dist(e.touches);
+      if (pinchDist) zoom(d / pinchDist, img.clientWidth / 2, img.clientHeight / 2);
+      pinchDist = d;
+    }
+  }, { passive: false });
+  stage.addEventListener("touchend", () => { pinchDist = 0; });
+
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+}
+
 if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(
     (entries) =>

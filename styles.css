@@ -281,6 +281,39 @@ img, svg { display: block; }
 
 .featured-card .btn { align-self: center; }
 
+.featured-photo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--rosa-suave);
+  cursor: zoom-in;
+}
+
+.featured-photo .slider-track img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s ease; }
+.featured-photo .slider-track img.active { opacity: 1; }
+
+.zoom-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 3;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,.9);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(214,51,108,.25);
+  transition: background .2s, transform .2s;
+}
+
+.zoom-btn:hover { background: #fff; transform: scale(1.1); }
+
 /* ---------- Marquee ---------- */
 .marquee {
   overflow: hidden;
@@ -630,6 +663,84 @@ a.contact-card:hover { transform: translateY(-4px); box-shadow: var(--sombra); }
 /* ---------- Animaciones de entrada ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(20,5,12,.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  animation: lb-in .28s ease;
+}
+
+.lightbox[hidden] { display: none; }
+
+@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
+
+.lightbox-stage {
+  width: min(92vw, 1100px);
+  height: min(82vh, 720px);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  touch-action: none;
+}
+
+.lightbox-stage img {
+  max-width: 94%;
+  max-height: 94%;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  cursor: grab;
+  transition: transform .15s ease-out;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.lightbox-stage img.dragging { cursor: grabbing; }
+
+.lightbox-close,
+.lightbox-zoom-in,
+.lightbox-zoom-out {
+  position: absolute;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background .2s, transform .2s;
+  backdrop-filter: blur(6px);
+}
+
+.lightbox-close:hover, .lightbox-zoom-in:hover, .lightbox-zoom-out:hover { background: rgba(255,255,255,.3); transform: scale(1.08); }
+
+.lightbox-close { top: 16px; right: 16px; }
+.lightbox-zoom-in { bottom: 16px; right: 78px; }
+.lightbox-zoom-out { bottom: 16px; right: 22px; }
+
+.lightbox-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,.6);
+  font-size: .72rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {

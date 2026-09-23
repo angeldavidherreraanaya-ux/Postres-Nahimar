@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=10">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -119,6 +119,21 @@
         <p class="section-subtitle">Los más pedidos</p>
         <h2 class="section-title">Lo que sale <em>del molde</em></h2>
         <div class="featured-row">
+          <article class="featured-card">
+            <div class="featured-photo slider" data-lightbox>
+              <div class="slider-track">
+                <img class="active" src="assets/img/fresas-chocorramo-flyer.jpg?v=2" alt="Fresas con crema con Chocorramo — promoción" width="902" height="1600" loading="lazy">
+                <img src="assets/img/fresas-chocorramo-real.jpg?v=2" alt="Fresas con crema con Chocorramo" width="1086" height="1448" loading="lazy">
+              </div>
+              <span class="price-chip">$6.000</span>
+              <button class="slider-btn prev" aria-label="Foto anterior" type="button">&#8249;</button>
+              <button class="slider-btn next" aria-label="Siguiente foto" type="button">&#8250;</button>
+              <button class="zoom-btn" aria-label="Ampliar imagen" type="button">&#128269;</button>
+            </div>
+            <div class="slider-dots" aria-label="Seleccionar foto"></div>
+            <h3>Fresas con Chocorramo</h3>
+            <a class="btn btn-wa btn-sm" href="https://wa.me/573007912699?text=Hola%2C%20quiero%20pedir%20Fresas%20con%20Chocorramo%20%28%246.000%29%20%F0%9F%8D%93" target="_blank" rel="noopener">Pedir esta</a>
+          </article>
           <article class="featured-card">
             <img src="assets/img/fresas-crema.jpg" alt="Fresas con crema" width="640" height="640" loading="lazy">
             <h3>Fresas con Crema</h3>
@@ -312,6 +327,14 @@
     <svg class="icon"><use href="#i-wa"/></svg>
   </a>
 
-  <script src="script.js?v=1"></script>
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Cerrar">&#10005;</button>
+    <button class="lightbox-zoom-out" type="button" aria-label="Alejar">&#8722;</button>
+    <button class="lightbox-zoom-in" type="button" aria-label="Acercar">&#43;</button>
+    <div class="lightbox-stage"><img alt=""></div>
+    <p class="lightbox-hint">Rueda o pellizca para zoom · arrastra para mover</p>
+  </div>
+
+  <script src="script.js?v=2"></script>
 </body>
 </html>
